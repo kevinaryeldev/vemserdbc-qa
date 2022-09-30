@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class exercicio3 {
     public static void main(String[] args) {
-        Scanner UserInput = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         System.out.println("Digite a Palavra que queira traduzir");
-        String word = UserInput.nextLine();
+        String word = userInput.nextLine();
         String result = null;
         while (result == null){
             switch (word){
@@ -26,7 +26,7 @@ public class exercicio3 {
                 case "Could" -> result = "Poderia";
                 default -> {
                     System.out.println("Essa palavra não é valida, por favor digite outra: ");
-                    word = UserInput.nextLine();
+                    word = userInput.nextLine();
                 }
             }
         }

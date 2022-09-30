@@ -30,6 +30,6 @@ public class exercicio8 {
             }
         }
         System.out.println("O funcionário com cargo "+cargo+" recebia antes "+oldSalary+
-                " reais, e depois do aumento receberá "+oldSalary*factor+" reais");
+                " reais, e depois do aumento receberá "+oldSalary*factor+" reais, uma diferença de ");
     }
 }
