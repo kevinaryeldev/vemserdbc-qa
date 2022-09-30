@@ -2,22 +2,22 @@ import java.util.Scanner;
 
 public class exercicio10 {
     public static void main(String[] args) {
-        Scanner UserInput = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         System.out.println("Digite o código do aluno:");
-        int code = UserInput.nextInt();
-        UserInput.nextLine();
+        int code = userInput.nextInt();
+        userInput.nextLine();
         System.out.println("Digite a primeira nota:");
-        float n1 = UserInput.nextFloat();
-        UserInput.nextLine();
+        float n1 = userInput.nextFloat();
+        userInput.nextLine();
         System.out.println("Digite a segunda nota:");
-        float n2 = UserInput.nextFloat();
-        UserInput.nextLine();
+        float n2 = userInput.nextFloat();
+        userInput.nextLine();
         System.out.println("Digite a terceira nota:");
-        float n3= UserInput.nextFloat();
-        UserInput.nextLine();
+        float n3= userInput.nextFloat();
+        userInput.nextLine();
         System.out.println("Digite a média dos exercícios:");
-        float n4 = UserInput.nextFloat();
-        UserInput.nextLine();
+        float n4 = userInput.nextFloat();
+        userInput.nextLine();
         float mApr = (n1+n2*2+n3*3+n4)/7;
         char conceito;
         String situation;

@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class exercicio7 {
     public static void main(String[] args) {
-        Scanner UserInput = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         System.out.println("Digite o código do produto");
-        String code = UserInput.nextLine();
+        String code = userInput.nextLine();
         System.out.println("Digite a quantidade comprada");
-        int quantity = UserInput.nextInt();
-        UserInput.nextLine();
+        int quantity = userInput.nextInt();
+        userInput.nextLine();
         float result = 0f;
         switch (code){
             case "ABCD" -> result = 5.30f*quantity;

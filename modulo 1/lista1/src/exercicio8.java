@@ -2,13 +2,13 @@ import java.util.Scanner;
 
 public class exercicio8 {
     public static void main(String[] args) {
-        Scanner UserInput = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         System.out.println("Digite o código de cargo do colaborador");
-        int code = UserInput.nextInt();
-        UserInput.nextLine();
+        int code = userInput.nextInt();
+        userInput.nextLine();
         System.out.println("Digite o salário do colaborador");
-        float oldSalary = UserInput.nextFloat();
-        UserInput.nextLine();
+        float oldSalary = userInput.nextFloat();
+        userInput.nextLine();
         String cargo;
         float factor;
         switch (code){

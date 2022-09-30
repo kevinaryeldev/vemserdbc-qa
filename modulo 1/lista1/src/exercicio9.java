@@ -2,19 +2,19 @@ import java.util.Scanner;
 
 public class exercicio9 {
     public static void main(String[] args) {
-        Scanner UserInput = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         System.out.println("Digite a hora de inicio:");
-        int horaInicio = UserInput.nextInt();
-        UserInput.nextLine();
+        int horaInicio = userInput.nextInt();
+        userInput.nextLine();
         System.out.println("Digite o minuto de inicio:");
-        int minutoInicio = UserInput.nextInt();
-        UserInput.nextLine();
+        int minutoInicio = userInput.nextInt();
+        userInput.nextLine();
         System.out.println("Digite a hora de término:");
-        int horaTermino = UserInput.nextInt();
-        UserInput.nextLine();
+        int horaTermino = userInput.nextInt();
+        userInput.nextLine();
         System.out.println("Digite o minuto de término:");
-        int minutoTermino = UserInput.nextInt();
-        UserInput.nextLine();
+        int minutoTermino = userInput.nextInt();
+        userInput.nextLine();
         int resultMinuto = 0;
         int resultHora = 0;
         boolean virouDia = false;
