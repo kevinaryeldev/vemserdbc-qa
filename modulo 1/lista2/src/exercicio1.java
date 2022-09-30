@@ -10,7 +10,7 @@ public class exercicio1 {
         sc.nextLine();
         System.out.println("Produto.: "+name+"\nPreço R$.: "+price+"\n\nPromoção: "+name+"\n---------------");
         for(int i=1;i<=10;i++){
-            System.out.println(i+"R$ "+price+" = R$ "+((1-(i*0.05f))*price));
+            System.out.println(i+" x R$ "+price+" = R$ "+((1-(i*0.05f))*price*i));
         }
     }
 }
