@@ -27,12 +27,9 @@ public class exercicio9 {
         if (minutoInicio < minutoTermino) {
             resultMinuto += minutoTermino - minutoInicio;
         }
-        if (resultMinuto > 60) {
-            resultMinuto -= 60;
-            resultHora++;
-        }
         if (horaInicio > 24) {
             horaInicio -= 24;
+            virouDia = true;
         }
         if (horaInicio > horaTermino) {
             resultHora += 24 - horaInicio;

@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class exercicio2 {
     public static void main(String[] args) {
-        Scanner InputUsuario = new Scanner(System.in);
+        Scanner inputUsuario = new Scanner(System.in);
         System.out.println("Selecione o código do estado que deseja:");
         System.out.println("1- Alagoas \n2- Bahia \n3- Ceará");
-        int codigo = InputUsuario.nextInt();
-        InputUsuario.nextLine();
+        int codigo = inputUsuario.nextInt();
+        inputUsuario.nextLine();
         while (codigo > 3 || codigo < 1){
             System.out.println("Código inválido, digite novamente");
-            codigo = InputUsuario.nextInt();
-            InputUsuario.nextLine();
+            codigo = inputUsuario.nextInt();
+            inputUsuario.nextLine();
         }
         String capital = "";
         String abreviacao = "";
