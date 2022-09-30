@@ -1,17 +1,24 @@
 public class Exercicio7 {
     public static void main(String[] args) {
         float table[][] = {
-                {7,7,7,7,7,7,7,7,7,7},
-                {5,5,5,5,5,5,5,5,5,5},
-                {6,6,6,6,6,6,6,6,6,6},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
+                {2,3,4},
         };
         float[] totalValues = {0,0,0};
         float minValue = 0;
         int bestPlace = 0;
         for (int i = 0; i < 3; i++) {
             float valueBuffer = 0;
-            for (float element : table[i]) {
-                valueBuffer += element;
+            for (int j = 0; j < 10 ;j++) {
+                valueBuffer += table[j][i];
             }
             totalValues[i] = valueBuffer;
             if (i == 0 || valueBuffer < minValue){
