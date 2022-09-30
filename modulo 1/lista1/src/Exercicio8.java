@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio8 {
+public class Exercicio8 {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Digite o código de cargo do colaborador");

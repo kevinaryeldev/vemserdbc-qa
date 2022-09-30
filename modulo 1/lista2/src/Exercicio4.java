@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio4 {
+public class Exercicio4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] numbers = new int[20];
@@ -10,7 +10,7 @@ public class exercicio4 {
             sc.nextLine();
         }
         System.out.println("----------------------");
-        for(int i =19; i >=0; i--){
+        for(int i = numbers.length-1; i >=0; i--){
             System.out.println(numbers[i]);
         }
     }

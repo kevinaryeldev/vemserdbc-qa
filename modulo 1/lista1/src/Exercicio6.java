@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio6 {
+public class Exercicio6 {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Digite o numero de eleitores do municipio");

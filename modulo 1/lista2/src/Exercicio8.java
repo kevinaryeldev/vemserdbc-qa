@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio8 {
+public class Exercicio8 {
     public static void main(String[] args) {
         int[] vector = {10, 9, 8, 7, 4, 4, 3, 2, 11, 25};
         Scanner sc = new Scanner(System.in);

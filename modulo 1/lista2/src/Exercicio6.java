@@ -1,4 +1,4 @@
-public class exercicio6 {
+public class Exercicio6 {
     public static void main(String[] args) {
         int[][] table = {
                 {5,5,5,5},

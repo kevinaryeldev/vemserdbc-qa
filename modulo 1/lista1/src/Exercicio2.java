@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio2 {
+public class Exercicio2 {
     public static void main(String[] args) {
         Scanner inputUsuario = new Scanner(System.in);
         System.out.println("Selecione o código do estado que deseja:");

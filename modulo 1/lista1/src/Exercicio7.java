@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio7 {
+public class Exercicio7 {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Digite o código do produto");

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio2 {
+public class Exercicio2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o numero a ser adivinhado :");

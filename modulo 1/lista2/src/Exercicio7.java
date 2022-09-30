@@ -1,4 +1,4 @@
-public class exercicio7 {
+public class Exercicio7 {
     public static void main(String[] args) {
         float table[][] = {
                 {7,7,7,7,7,7,7,7,7,7},

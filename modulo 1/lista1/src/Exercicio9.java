@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio9 {
+public class Exercicio9 {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Digite a hora de inicio:");

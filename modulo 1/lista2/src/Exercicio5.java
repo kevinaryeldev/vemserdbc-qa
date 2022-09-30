@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio5 {
+public class Exercicio5 {
     public static void main(String[] args) {
         float[][] table = new float[5][4];
         String message;
@@ -47,7 +47,8 @@ public class exercicio5 {
  /* print table :
 
  for (int[] line : table){
-    int 1
+
+     for( int 1
  }
 
 

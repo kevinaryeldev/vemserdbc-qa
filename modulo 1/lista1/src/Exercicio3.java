@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio3 {
+public class Exercicio3 {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Digite a Palavra que queira traduzir");

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exercicio5 {
+public class Exercicio5 {
     public static void main(String[] args) {
         Scanner inputUser = new Scanner(System.in);
         System.out.println("Digite o valor da base do retângulo:");
