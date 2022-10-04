@@ -7,113 +7,82 @@ public class Main {
 
                 //Primeiro contato:
 
-        Contato TelefoneCasaKevin = new Contato();
-        TelefoneCasaKevin.tipo = 1;
-        TelefoneCasaKevin.descricao = "Meu número";
-        TelefoneCasaKevin.telefone = "4002-8922";
+        Contato TelefoneCasaKevin = new Contato(1,"4002-8922","Meu número");
 
-
-        Contato TelefoneTrabalhoKevin = new Contato();
-        TelefoneTrabalhoKevin.tipo =2;
-        TelefoneTrabalhoKevin.descricao ="Uma descriçao detalhada";
-        TelefoneTrabalhoKevin.telefone = "0800 777 7000";
+        Contato TelefoneTrabalhoKevin = new Contato(2,"0800 777 7000", "Telefone de trabalho tecpix");
 
             //Criando endereço da primeira conta
 
                 //Primeiro endereço
 
-        Endereco EnderecoKevin = new Endereco();
-        EnderecoKevin.cidade = "Salvador";
-        EnderecoKevin.numero = 1337;
-        EnderecoKevin.complemento = "Logo ali";
-        EnderecoKevin.pais ="Brasil";
-        EnderecoKevin.logradouro ="Rua massa pra caramba";
-        EnderecoKevin.tipo =1;
-        EnderecoKevin.cep = "41577-700";
-        EnderecoKevin.estado ="Bahia";
+        Endereco EnderecoKevin = new Endereco(1,"Rua bacanudona",
+                1337,"Logo Ali", "41577-700", "Salvador",
+                "Bahia","Brasil");
 
             //Criando o primeiro cliente
 
-        Cliente Kevin = new Cliente();
-        Kevin.nome = "Kevin Aryel";
-        Kevin.enderecos[0] = EnderecoKevin;
-        Kevin.contatos[0] = TelefoneCasaKevin;
-        Kevin.contatos[1] = TelefoneTrabalhoKevin;
-        Kevin.cpf = "888.888.88-88";
+        Cliente Kevin = new Cliente("Kevin Aryel","888.888.888-88");
+        Kevin.setEnderecos(EnderecoKevin,0);
+        Kevin.setContatos(TelefoneCasaKevin, 0);
+        Kevin.setContatos(TelefoneTrabalhoKevin,1);
 
-        //Criando a primeira conta:
+        //Criando a primeira conta corrente:
 
-        ContaCorrente ContaKevin = new ContaCorrente();
-        ContaKevin.cliente = Kevin;
-        ContaKevin.saldo = 10000000.50;
-        ContaKevin.chequeEspecial = 7000;
-        ContaKevin.numeroConta = "3077877";
-        ContaKevin.agencia = 388;
+        ContaCorrente ContaKevin = new ContaCorrente(Kevin,"1000",
+                388,2500.45,700);
+
+        // Criando a primeira conta poupanca:
+
+        ContaPoupanca PoupaKevin = new ContaPoupanca(Kevin,"1001",388,600);
 
 
         // Segunda Conta: ----------------------------------------------------------
-
 
             //Criando os contatos da segunda conta:
 
                 //Primeiro Contato:
 
-        Contato TelefoneCasaJosenildo = new Contato();
-        TelefoneCasaJosenildo.tipo = 1;
-        TelefoneCasaJosenildo.descricao = "Numero do Josenildo";
-        TelefoneCasaJosenildo.telefone = "5555-4955";
+        Contato TelefoneCasaJosenildo = new Contato(1,"5555-4955",
+                "Numero do Josenildo");
+
 
             //Criando endereço da segunda conta:
 
                 //Primeiro endereço:
 
-        Endereco EnderecoJosenildo = new Endereco();
-        EnderecoJosenildo.cidade = "Salinas da Margarida";
-        EnderecoJosenildo.numero = 142;
-        EnderecoJosenildo.complemento = "Perto do bar do zé";
-        EnderecoJosenildo.pais ="Brasilis";
-        EnderecoJosenildo.logradouro ="Rua joão pé de feijão";
-        EnderecoJosenildo.tipo =1;
-        EnderecoJosenildo.cep = "75643-700";
-        EnderecoJosenildo.estado ="Bahia";
+        Endereco EnderecoJosenildo = new Endereco(1, "Rua João pé de feijão",
+                142,"Perto do bar do zé","75643-700","Salinas da Margarida",
+                "Bahia", "Brasil");
 
                 //Segundo endereço:
 
-        Endereco EnderecoJosenildoTrabalho = new Endereco();
-        EnderecoJosenildoTrabalho.cidade = "Nazaré das Farinhas";
-        EnderecoJosenildoTrabalho.numero = 1467;
-        EnderecoJosenildoTrabalho.complemento = "Ao lado do correios";
-        EnderecoJosenildoTrabalho.pais ="Brasilis";
-        EnderecoJosenildoTrabalho.logradouro ="Rua torta324";
-        EnderecoJosenildoTrabalho.tipo =2;
-        EnderecoJosenildoTrabalho.cep = "55455-78";
-        EnderecoJosenildoTrabalho.estado ="Bahia";
+        Endereco EnderecoJosenildoTrabalho = new Endereco(2,"Rua torta",1467,
+                "Ao lado do shopping", "55455-78","Nazaré das Farinhas",
+                "Bahia", "Brasil");
 
             //Criando o segundo cliente
 
-        Cliente Josenildo = new Cliente();
-        Josenildo.nome = "Josenildo Silveira";
-        Josenildo.enderecos[0] = EnderecoJosenildo;
-        Josenildo.enderecos[1] = EnderecoJosenildoTrabalho;
-        Josenildo.contatos[0] = TelefoneCasaJosenildo;
-        Josenildo.cpf = "456.376.89-99";
+        Cliente Josenildo = new Cliente("Josenildo Silveira","456.376.893-99");
+        Josenildo.setEnderecos(EnderecoJosenildo,0);
+        Josenildo.setEnderecos(EnderecoJosenildoTrabalho,1);
+        Josenildo.setContatos(TelefoneCasaJosenildo,0);
 
-            //Criando a segunda conta:
+            //Criando a segunda conta corrente:
 
-        ContaCorrente ContaJosenildo = new ContaCorrente();
-        ContaJosenildo.cliente = Josenildo;
-        ContaJosenildo.saldo = 1289.75;
-        ContaJosenildo.chequeEspecial = 500;
-        ContaJosenildo.numeroConta = "504589";
-        ContaJosenildo.agencia = 388;
+        ContaCorrente ContaJosenildo = new ContaCorrente(Josenildo, "2000",388,
+                1289.75, 500);
+        // Criando a segunda conta poupanca:
 
-        ContaKevin.transferir(ContaJosenildo,1000.25);
-        ContaJosenildo.sacar(2700.60);
-        ContaJosenildo.sacar(7000);
+            ContaPoupanca PoupancaJosenildo = new ContaPoupanca(Josenildo, "2001",
+                    388,100);
 
-        ContaJosenildo.imprimirContaCorrente();
-        ContaKevin.imprimirContaCorrente();
-
+        System.out.println(PoupancaJosenildo.getSaldo());
+        PoupancaJosenildo.creditarTaxa();
+        System.out.println(PoupancaJosenildo.getSaldo());
+        PoupancaJosenildo.transferir(ContaJosenildo,100.25);
+        System.out.println("Novo saldo conta corrente Josenildo:"+ContaJosenildo.getSaldo());
+        ContaKevin.sacar(2700.60);
+        ContaKevin.transferir(PoupaKevin, 1000.50);
 
     }
 }

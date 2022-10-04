@@ -1,8 +1,13 @@
 public class Cliente {
-    String nome;
-    String cpf;
-    Contato[] contatos = new Contato[2];
-    Endereco[] enderecos = new Endereco[2];
+    private String nome;
+    private String cpf;
+    private Contato[] contatos = new Contato[2];
+    private Endereco[] enderecos = new Endereco[2];
+
+    public Cliente (String nome, String cpf){
+    this.nome = nome;
+    this.cpf = cpf;
+    }
 
     public void imprimirContatos(){
         System.out.println("Contatos do cliente "+nome+":\n");
@@ -30,5 +35,37 @@ public class Cliente {
         System.out.println("Cliente "+nome+"\nCPF: "+cpf+"\n---------------------");
         this.imprimirContatos();
         this.imprimirEnderecos();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Contato[] getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(Contato contato, int index) {
+        this.contatos[index] = contato;
+    }
+
+    public Endereco[] getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(Endereco endereco, int index) {
+        this.enderecos[index] = endereco;
     }
 }
