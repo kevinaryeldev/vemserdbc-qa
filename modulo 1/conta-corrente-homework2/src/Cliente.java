@@ -11,19 +11,23 @@ public class Cliente {
 
     public void imprimirContatos(){
         System.out.println("Contatos do cliente "+nome+":\n");
-        for (Contato i : contatos) {
-            if (i != null){
-                i.imprimirContato();
+        if (contatos != null){
+            for (Contato i : contatos) {
+                if (i != null){
+                    i.imprimirContato();
+                }
             }
+            System.out.println("Fim dos contatos\n");
         }
-        System.out.println("Fim dos contatos\n");
     }
 
     public  void imprimirEnderecos(){
         System.out.println("Enderecos do cliente "+nome+":\n");
-        for (Endereco i : enderecos){
-            if (i != null){
-                i.imprimirEnderecos();
+        if (contatos != null){
+            for (Endereco i : enderecos){
+                if (i != null){
+                    i.imprimirEnderecos();
+                }
             }
         }
         System.out.println("\nFim dos endereços\n");
@@ -58,7 +62,9 @@ public class Cliente {
     }
 
     public void setContatos(Contato contato, int index) {
-        this.contatos[index] = contato;
+        if( index <= contatos.length-1 && index >=0) {
+            this.contatos[index] = contato;
+        }
     }
 
     public Endereco[] getEnderecos() {
@@ -66,6 +72,8 @@ public class Cliente {
     }
 
     public void setEnderecos(Endereco endereco, int index) {
-        this.enderecos[index] = endereco;
+        if( index <= enderecos.length-1 && index >=0){
+            this.enderecos[index] = endereco;
+        }
     }
 }
