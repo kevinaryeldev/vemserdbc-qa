@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
     private String nome;
     private String cpf;
-    private Contato[] contatos = new Contato[2];
-    private Endereco[] enderecos = new Endereco[2];
+    private List<Contato> contatos = new ArrayList<>();
+    private List<Endereco> enderecos = new ArrayList<>();
 
     public Cliente (String nome, String cpf){
     this.nome = nome;
@@ -57,23 +60,28 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public Contato[] getContatos() {
+    public List<Contato> getContatos() {
         return contatos;
     }
 
     public void setContatos(Contato contato, int index) {
-        if( index <= contatos.length-1 && index >=0) {
-            this.contatos[index] = contato;
+        if (index > contatos.size()-1 || contatos.size() == 0 ){
+            contatos.add(contato);
+        }
+        if( index <= contatos.size()-1 && index >=0) {
+            contatos.set(index, contato);
         }
     }
 
-    public Endereco[] getEnderecos() {
+    public List<Endereco> getEnderecos() {
         return enderecos;
     }
 
     public void setEnderecos(Endereco endereco, int index) {
-        if( index <= enderecos.length-1 && index >=0){
-            this.enderecos[index] = endereco;
+        if (index > enderecos.size()-1 || contatos.size() == 0){
+            enderecos.add(endereco);
+        } else if( index <= enderecos.size()-1 && index >=0){
+            enderecos.set(index, endereco);
         }
     }
 }
