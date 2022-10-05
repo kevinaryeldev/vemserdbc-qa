@@ -29,12 +29,12 @@ public class Main {
 
         //Criando a primeira conta corrente:
 
-        ContaCorrente contaKevin = new ContaCorrente(Kevin,"1000",
+        ContaCorrente contaKevin = new ContaCorrente(kevin,"1000",
                 388,2500.45,700);
 
         // Criando a primeira conta pagamento:
 
-        ContaPagamento pagamentoKevin = new ContaPagamento(Kevin,"1001",388,600);
+        ContaPagamento pagamentoKevin = new ContaPagamento(kevin,"1001",388,600);
 
 
         // Segundo Cliente: ----------------------------------------------------------
