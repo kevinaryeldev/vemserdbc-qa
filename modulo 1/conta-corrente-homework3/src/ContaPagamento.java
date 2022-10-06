@@ -4,7 +4,7 @@ public class ContaPagamento extends Conta implements Impressao {
         super(cliente, numeroConta, agencia, saldo);
     }
 
-    final double TAXA_SAQUE = 4.25;
+    private static final double TAXA_SAQUE = 4.25;
 
     @Override
     public boolean sacar(double valor){
