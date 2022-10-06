@@ -24,19 +24,17 @@ public class Stream {
 
         System.out.println("\n--------------------- Resposta Atividade 2 ---------------------\n");
 
-        List<Pessoa> exercicioStream2 = lista.stream()
-                .filter(pessoa -> pessoa.getSalario() > 5000).toList();
-
-        System.out.println(exercicioStream2);
+        lista.stream()
+                .filter(pessoa -> pessoa.getSalario() > 5000).forEach(System.out::println);
 
         //3- filtrar todas as pessoas que são desenvolvedoras e organizar por salário crescente (filter, sorted)
 
         System.out.println("\n--------------------- Resposta Atividade 3 ---------------------\n");
 
-        List<Pessoa> exercicioStream3 = lista.stream()
-                .filter(pessoa -> pessoa.getCargo() == "Desenvolvedor").sorted(Comparator.comparing(Pessoa::getSalario)).toList();
-
-        System.out.println(exercicioStream3);
+        lista.stream()
+                .filter(pessoa -> pessoa.getCargo() == "Desenvolvedor")
+                .sorted(Comparator.comparing(Pessoa::getSalario))
+                .forEach(System.out::println);
 
         //4- fazer a média salarial de todos
 
@@ -62,20 +60,21 @@ public class Stream {
 
         System.out.println("\n--------------------- Resposta Atividade 6 ---------------------\n");
 
-        List<Integer> exercicioStream6 = lista.stream()
-                .map(pessoa -> pessoa.getId()).toList();
+        lista.stream()
+                .map(pessoa -> pessoa.getId())
+                .toList()
+                .forEach(System.out::println);
 
-        System.out.println(exercicioStream6);
 
         //7- criar uma nova classe Salario com ID e Salário, utilizando a função "map" do stream,
         // retornar uma lista desse novo objeto
 
         System.out.println("\n--------------------- Resposta Atividade 7 ---------------------\n");
 
-        List<Salario> exercicioStream7 = lista.stream()
-                .map(pessoa-> new Salario(pessoa.getId(), pessoa.getSalario())).toList();
-
-        System.out.println(exercicioStream7);
+        lista.stream()
+                .map(pessoa-> new Salario(pessoa.getId(), pessoa.getSalario()))
+                .toList()
+                .forEach(System.out::println);
 
         //8- retornar um HashMap (estrutura de dados, e não uma função map) contendo os ids e os nomes dos colaboradores
 
@@ -98,13 +97,14 @@ public class Stream {
         System.out.println("\n--------------------- Resposta Atividade 10 ---------------------\n");
 
            Optional<Pessoa> exercicioStream9 = lista.stream()
-                   .filter(pessoa -> pessoa.getNome().contains("Paulo"))
+                   .filter(pessoa -> pessoa.getNome().toLowerCase().contains("paulo"))
                    .findFirst();
+
            if (exercicioStream9.isPresent()){
-               System.out.println(exercicioStream9.get().getNome()+", "+exercicioStream9.get().getSalario());
+               Pessoa pessoa1 = exercicioStream9.get();
+               System.out.println(pessoa1.getNome()+", "+pessoa1.getSalario());
         }
     }
-
 
     static class Salario{
 
