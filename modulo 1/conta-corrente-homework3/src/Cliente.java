@@ -73,6 +73,10 @@ public class Cliente {
         }
     }
 
+    public void setContatos(Contato contato){
+        contatos.add(contato);
+    }
+
     public List<Endereco> getEnderecos() {
         return enderecos;
     }
@@ -84,4 +88,9 @@ public class Cliente {
             enderecos.set(index, endereco);
         }
     }
+
+    public void  setEnderecos(Endereco endereco){
+        enderecos.add(endereco);
+    }
+
 }
