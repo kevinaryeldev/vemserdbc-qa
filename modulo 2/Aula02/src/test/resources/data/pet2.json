@@ -1,0 +1,18 @@
+{
+  "id": 20220723,
+  "category": {
+    "id": 2,
+    "name": "dog"
+  },
+  "name": "Doo",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 2022,
+      "name": "QA"
+    }
+  ],
+  "status": "available"
+}
