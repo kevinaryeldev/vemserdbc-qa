@@ -1,6 +1,7 @@
 package Itera;
 
 import com.github.javafaker.Faker;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -136,7 +137,10 @@ public class HomeworkSelenium01 {
         String[] optionCheckbox = {"[for=\"selenium\"]","[for=\"cucumber\"]","[for=\"testng\"]","[for=\"serenity\"]","[for=\"mabl\"]","[for=\"testim\"]"};
         int quantidadeSeraEscolhida = faker.number().numberBetween(0,6);
         marcarCheckbox(optionCheckbox,quantidadeSeraEscolhida);
-        
+    }
+    @After
+    public void fecharNavegador(){
+        driver.quit();
     }
 
 }
