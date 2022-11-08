@@ -116,7 +116,7 @@ public class UserAceitacaoTest {
     public void testarDeletarUsuarioSemUsername(){
         UserService.falhaDeletarUsuarioSemPassarUsername();
     }
-    
+
     //O put sempre retorna 200, já não sei o que usar
     @Test
     public void testarAtualizarUsuarioPassandoUsername() throws IOException {
