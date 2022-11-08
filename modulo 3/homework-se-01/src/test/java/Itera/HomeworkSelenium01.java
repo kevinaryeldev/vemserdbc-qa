@@ -82,7 +82,8 @@ public class HomeworkSelenium01 {
     public void validarPreencherRadioButtonAmbos(){
         String[] options1 ={"female","male"};
         driver.findElement(By.id(options1[faker.number().numberBetween(0,1)])).click();
-        String[] options2 = {"monday","tuesday","wednesday","thursday","friday","saturday","sunday"};
+        String[] options2 = {"[id=monday]","[id=tuesday]","[id=wednesday]","[id=thursday]",
+                "[id=friday]","[id=saturday]","[id=sunday]"};
         int quantidadeSeraEscolhida = faker.number().numberBetween(0,7);
         marcarCheckbox(options2,quantidadeSeraEscolhida);
     }
