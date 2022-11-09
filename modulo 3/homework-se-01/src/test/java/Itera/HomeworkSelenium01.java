@@ -9,10 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class HomeworkSelenium01 {
     public static WebDriver driver;
@@ -28,7 +26,6 @@ public class HomeworkSelenium01 {
         driver.manage().window().maximize();
         driver.findElement(By.cssSelector("[href=\"/home/automation\"]")).click();
     }
-
 
     @Test
     public void validarPreencherTextAreaValidos(){
@@ -82,8 +79,14 @@ public class HomeworkSelenium01 {
     public void validarPreencherRadioButtonAmbos(){
         String[] options1 ={"female","male"};
         driver.findElement(By.id(options1[faker.number().numberBetween(0,1)])).click();
-        String[] options2 = {"[id=monday]","[id=tuesday]","[id=wednesday]","[id=thursday]",
-                "[id=friday]","[id=saturday]","[id=sunday]"};
+        List<String> options2 = new ArrayList<>();
+        options2.add("[id=monday]");
+        options2.add("[id=tuesday]");
+        options2.add("[id=wednesday]");
+        options2.add("[id=thursday]");
+        options2.add("[id=friday]");
+        options2.add("[id=saturday]");
+        options2.add("[id=sunday]");
         int quantidadeSeraEscolhida = faker.number().numberBetween(0,7);
         marcarCheckbox(options2,quantidadeSeraEscolhida);
     }
@@ -95,23 +98,37 @@ public class HomeworkSelenium01 {
     }
     @Test
     public void validarPreencherRadioButtonApenasCheckbox(){
-        String[] options2 = {"[id=monday]","[id=tuesday]","[id=wednesday]","[id=thursday]",
-                "[id=friday]","[id=saturday]","[id=sunday]"};
+        List<String> options2 = new ArrayList<>();
+        options2.add("[id=monday]");
+        options2.add("[id=tuesday]");
+        options2.add("[id=wednesday]");
+        options2.add("[id=thursday]");
+        options2.add("[id=friday]");
+        options2.add("[id=saturday]");
+        options2.add("[id=sunday]");
         int quantidadeSeraEscolhida = faker.number().numberBetween(0,7);
         marcarCheckbox(options2,quantidadeSeraEscolhida);
     }
 
-    public void marcarCheckbox(String[] ids, int qnt){
+    @Test
+    public void testarFuncaoMarcarCheckbox(){
+        List<String> options2 = new ArrayList<>();
+        options2.add("[id=monday]");
+        options2.add("[id=tuesday]");
+        options2.add("[id=wednesday]");
+        options2.add("[id=thursday]");
+        options2.add("[id=friday]");
+        options2.add("[id=saturday]");
+        options2.add("[id=sunday]");
+        marcarCheckbox(options2,7);
+    }
+    public void marcarCheckbox(List<String> selectors, int qnt){
         int escolhidos = 0;
-        List<Integer> jaEscolhidos = new ArrayList<Integer>();
         while (escolhidos < qnt){
-            int escolhido = faker.number().numberBetween(0,ids.length-1);
-            System.err.println(escolhido);
-            if (jaEscolhidos.stream().noneMatch(el->el == escolhido)){
-                driver.findElement(By.cssSelector(ids[escolhido])).click();
-                escolhidos++;
-                jaEscolhidos.add(escolhido);
-            }
+            int escolhido = faker.number().numberBetween(0,selectors.size() -1);
+            driver.findElement(By.cssSelector(selectors.get(escolhido))).click();
+            escolhidos++;
+            selectors.remove(escolhido);
         }
     }
     @Test
@@ -133,17 +150,25 @@ public class HomeworkSelenium01 {
     @Test
     public void validarSelecionarCheckboxRadioXpathBoth(){
         int random = faker.number().numberBetween(0,3);
-        String[] optionCheckBox = {"[for=\"1year\"]","[for=\"2years\"]","[for=\"3years\"]","[for=\"4years\"]"};
-        driver.findElement(By.cssSelector(optionCheckBox[random])).click();
-        String[] optionCheckbox = {"[for=\"selenium\"]","[for=\"cucumber\"]","[for=\"testng\"]","[for=\"serenity\"]","[for=\"mabl\"]","[for=\"testim\"]"};
+        String[] optionRadio = {"[for=\"1year\"]","[for=\"2years\"]","[for=\"3years\"]","[for=\"4years\"]"};
+        driver.findElement(By.cssSelector(optionRadio[random])).click();
+        List<String> optionCheckbox = new ArrayList<>();
+        optionCheckbox.add("[for=\"selenium\"]");
+        optionCheckbox.add("[for=\"cucumber\"]");
+        optionCheckbox.add("[for=\"testng\"]");
+        optionCheckbox.add("[for=\"serenity\"]");
+        optionCheckbox.add("[for=\"testim\"]");
+        optionCheckbox.add("[for=\"mabl\"]");
         int quantidadeSeraEscolhida = faker.number().numberBetween(0,6);
         marcarCheckbox(optionCheckbox,quantidadeSeraEscolhida);
     }
+    /*
     @After
     public void fecharNavegador(){
         driver.quit();
     }
 
+     */
 }
 
 
