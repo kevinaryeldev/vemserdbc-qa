@@ -70,7 +70,7 @@ context('Pessoa',()=>{
         })
 
         it('Testar atualizar dados pessoa com id inválido',()=>{
-            PessoaService.atualizarPessoa(0,pessoa1).then(({body,status})=>{
+            PessoaService.atualizarPessoa(0,pessoa).then(({body,status})=>{
                 expect(status).to.eq(404)
                 expect(body.status).to.eq(404)
                 expect(body.message).to.have.string('ID')
@@ -79,9 +79,7 @@ context('Pessoa',()=>{
 
         it('Testar atualizar dados com body vazio',()=>{
             PessoaService.atualizarPessoa(134,{}).then(({body,status})=>{
-                expect(status).to.eq(400)                
-                expect(body.status).to.eq(404)
-                expect(body.erros).to.be.a('array')
+                expect(status).to.eq(400)
             })
         })
     })
@@ -171,7 +169,7 @@ context('Pessoa',()=>{
             })
         })
         it('Testar pegar lista completa pessoa com id invalido',()=>{
-            PessoaService.getPessoaListaCompleta().then(({body,status})=>{
+            PessoaService.getPessoaListaCompleta(0).then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
                 expect(body).to.be.empty
@@ -201,7 +199,7 @@ context('Pessoa',()=>{
             })
         })
         it('Testar pegar lista enderecos pessoa com id invalido',()=>{
-            PessoaService.getPessoaListaEnderecos().then(({body,status})=>{
+            PessoaService.getPessoaListaEnderecos(0).then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
                 expect(body).to.be.empty
