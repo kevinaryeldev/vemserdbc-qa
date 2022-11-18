@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "totalElements": {
+            "type": "integer"
+        },
+        "totalPages": {
+            "type": "integer"
+        },
+        "page": {
+            "type": "integer"
+        },
+        "size": {
+            "type": "integer"
+        },
+        "content": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "dataNascimento": {
+                        "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "idPessoa": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}
