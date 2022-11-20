@@ -1,11 +1,16 @@
-import PessoaService from './../service/pessoaService.js'
-import PessoaData from './../../fixtures/pessoas.js'
+import PessoaService from './../../service/pessoaService'
+import PessoaData from '../../../fixtures/payload-data/pessoas'
 
 const pessoa = PessoaData.pessoa1
 
 context('Pessoa',()=>{
+
     context('Criar nova pessoa',()=>{
         it('Testar criar nova pessoa com dados válidos', ()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Criar Pessoa');
             PessoaService.addPessoa(pessoa).then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body.nome).to.eq(pessoa.nome)
@@ -19,6 +24,10 @@ context('Pessoa',()=>{
         })
 
         it('Testar criar nova pessoa sem nome', ()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Criar Pessoa');
             let pessoaTeste = PessoaData.pesssoaSemNome
             PessoaService.addPessoa(pessoaTeste).then(({body,status})=>{
                 expect(status).to.eq(400)
@@ -29,6 +38,10 @@ context('Pessoa',()=>{
         })
 
         it('Testar criar pessoa sem cpf', ()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Criar Pessoa');
             let pessoaTeste = PessoaData.pessoaSemCpf
             PessoaService.addPessoa(pessoaTeste).then(({body,status})=>{
                 expect(status).to.eq(400)
@@ -38,6 +51,10 @@ context('Pessoa',()=>{
         })
 
         it('Testar criar pessoa vazio', ()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Criar Pessoa');
             PessoaService.addPessoa({}).then(({body,status})=>{
                 expect(status).to.eq(400)
                 expect(body.status).to.eq(400)
@@ -48,6 +65,10 @@ context('Pessoa',()=>{
 
     context('Atualizar dados pessoa',()=>{
         it('Testar atualizar dados pessoa com sucesso',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Editar Pessoa');
             PessoaService.addPessoa(pessoa).then(({body})=>{
                 return body.idPessoa
             }).then(idPessoa => {
@@ -67,6 +88,10 @@ context('Pessoa',()=>{
         })
 
         it('Testar atualizar dados pessoa com id inválido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Editar Pessoa');
             PessoaService.atualizarPessoa(0,pessoa).then(({body,status})=>{
                 expect(status).to.eq(404)
                 expect(body.status).to.eq(404)
@@ -75,14 +100,23 @@ context('Pessoa',()=>{
         })
 
         it('Testar atualizar dados com body vazio',()=>{
-            PessoaService.atualizarPessoa(134,{}).then(({body,status})=>{
-                expect(status).to.eq(400)
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Editar Pessoa');
+            PessoaService.atualizarPessoa(0,{}).then(({body,status})=>{
+                expect(status).to.eq(400)                
+                expect(body.status).to.eq(400)
             })
         })
     })
 
     context('Pegar lista de todas pessoas',()=>{
         it('Pegar Lista todas Pessoas',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaAll().then(({body})=>{
                 expect(body.size).to.eq(20)
                 expect(body.page).to.eq(0)
@@ -92,21 +126,30 @@ context('Pessoa',()=>{
     })
 
     context('Pegar pessoa por cpf',()=>{
+        beforeEach(()=>{
+            cy.criarDados()
+        })
+    
+        afterEach(()=>{
+            cy.deletarDados()
+        })
         it('Testar pegar pessoa por cpf com sucesso',()=>{
-            PessoaService.addPessoa(pessoa).then(response =>{
-                expect(response.status).to.eq(200)
-            }).then( ()=>{
-                PessoaService.getPessoaCpf(pessoa.cpf).then(({body})=>{
-                    expect(body.cpf).to.eq(pessoa.cpf)
-                    expect(body.nome).to.eq(pessoa.nome)
-                    return body.idPessoa
-                }).then(idPessoa=> {
-                    PessoaService.deletePessoa(idPessoa)
-                })
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
+            PessoaService.getPessoaCpf(pessoa.cpf).then(({body})=>{
+                expect(body.cpf).to.eq(pessoa.cpf)
+                expect(body.nome).to.eq(pessoa.nome)
+                return body.idPessoa
             })
         })
 
         it('Testar pegar pessoa por cpf invalido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaCpf('abc').then(({body,status})=>{
                 expect(status).to.eq(400)
                 expect(body.status).to.eq(400)
@@ -114,7 +157,11 @@ context('Pessoa',()=>{
         })
 
         it('Testar pegar pessoa por cpf inexistente',()=>{
-            PessoaService.getPessoaCpf('723416589').then(({body,status})=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
+            PessoaService.getPessoaCpf(0).then(({body,status})=>{
                 expect(status).to.eq(400)
                 expect(body.status).to.eq(400)
             })
@@ -122,8 +169,13 @@ context('Pessoa',()=>{
 
     })
 
+
     context('Pegar Relatorio Pessoa',()=>{
         it('Testar pegar Relatorio pessoa com sucesso',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.addPessoa(pessoa).then(response =>{
                 expect(response.status).to.eq(200)
                 return response.body.idPessoa
@@ -142,12 +194,20 @@ context('Pessoa',()=>{
         })
 
         it('Testar pegar Relatorio pessoa todos',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaRelatorio().then(({status,body})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
             })
         })
         it('Testar pegar Relatorio pessoa com id invalido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaRelatorio(0).then(({status,body})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
@@ -158,12 +218,20 @@ context('Pessoa',()=>{
     
     context('Pegar lista completa pessoa',()=>{
         it('Testar pegar lista completa pessoa sem id',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaListaCompleta().then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
             })
         })
         it('Testar pegar lista completa pessoa com id invalido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaListaCompleta(0).then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
@@ -171,6 +239,10 @@ context('Pessoa',()=>{
             })
         })
         it('Testar pegar lista completa pessoa com id valido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.addPessoa(pessoa).then(({body})=>{
                 return body.idPessoa
             }).then(idPessoa=>{
@@ -188,19 +260,31 @@ context('Pessoa',()=>{
 
     context('Pegar lista enderecos pessoa',()=>{
         it('Testar pegar lista enderecos pessoa com sucesso',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaListaEnderecos().then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
             })
         })
         it('Testar pegar lista enderecos pessoa com id invalido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaListaEnderecos(0).then(({body,status})=>{
-                expect(status).to.eq(200)
-                expect(body).to.be.a('array')
-                expect(body).to.be.empty
+                expect(status).to.eq(404)
+                expect(body.message).to.exist
+                expect(body.timestamp).to.exist
             })
         })
         it('Testar pegar lista enderecos pessoa com id valido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.addPessoa(pessoa).then(({body})=>{
                 return body.idPessoa
             }).then(idPessoa=>{
@@ -218,19 +302,31 @@ context('Pessoa',()=>{
 
     context('Pegar lista pessoa com contatos',()=>{
         it('Testar pegar pessoa lista com contatos com sucesso',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaListaContatos().then(({body,status})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
             })
         })
         it('Testar pegar pessoa lista com contatos com id invalido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaListaContatos(0).then(({body,status})=>{
-                expect(status).to.eq(200)
-                expect(body).to.be.a('array')
-                expect(body).to.be.empty
+                expect(status).to.eq(404)
+                expect(body.message).to.exist
+                expect(body.timestamp).to.exist
             })
         })
         it('Testar pegar lista pessoa com contatos com id valido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.addPessoa(pessoa).then(({body})=>{
                 return body.idPessoa
             }).then(idPessoa=>{
@@ -248,6 +344,10 @@ context('Pessoa',()=>{
 
     context('Pegar pessoa por nome',()=>{
         it('Testar pegar pessoa por nome valido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.addPessoa(pessoa).then(response =>{
                 expect(response.status).to.eq(200)
             }).then( ()=>{
@@ -262,6 +362,10 @@ context('Pessoa',()=>{
             })
         })
         it('Testar pegar pessoa por nome invalido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Pegar Pessoa');
             PessoaService.getPessoaNome('kaklfiqwohio').then(({status,body})=>{
                 expect(status).to.eq(200)
                 expect(body).to.be.a('array')
@@ -272,6 +376,10 @@ context('Pessoa',()=>{
 
     context('Deletar pessoa',()=>{
         it('Testar deletar pessoa com id válido', ()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Deletar Pessoa');
             PessoaService.addPessoa(pessoa).then(({body})=>{
                 return body.idPessoa
             }).then(idPessoa =>{
@@ -281,6 +389,10 @@ context('Pessoa',()=>{
             })
         })
         it('Testar deletar pessoa com id inválido',()=>{
+            cy.allure()
+            .epic('Teste de Aceitação')
+            .feature('Pessoa')
+            .story('Deletar Pessoa');
             PessoaService.deletePessoa(0).then(({status,body}) =>{
                 expect(status).to.eq(404)               
                 expect(body.status).to.eq(404)

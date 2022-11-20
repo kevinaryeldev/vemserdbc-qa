@@ -1,0 +1,46 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "nome": {
+                "type": "string"
+            },
+            "dataNascimento": {
+                "type": "string"
+            },
+            "cpf": {
+                "type": "string"
+            },
+            "email": {
+                "type": "string"
+            },
+            "idPessoa": {
+                "type": "integer"
+            },
+            "contatos": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "idPessoa": {
+                            "type": "integer"
+                        },
+                        "tipoContato": {
+                            "type": "string"
+                        },
+                        "telefone": {
+                            "type": "string"
+                        },
+                        "descricao": {
+                            "type": "string"
+                        },
+                        "idContato": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

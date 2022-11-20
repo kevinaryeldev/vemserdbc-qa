@@ -1,0 +1,61 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "nome": {
+                "type": "string"
+            },
+            "dataNascimento": {
+                "type": "string"
+            },
+            "cpf": {
+                "type": "string"
+            },
+            "email": {
+                "type": "string"
+            },
+            "idPessoa": {
+                "type": "integer"
+            },
+            "enderecos": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "idPessoa": {
+                            "type": "null"
+                        },
+                        "tipo": {
+                            "type": "string"
+                        },
+                        "logradouro": {
+                            "type": "string"
+                        },
+                        "numero": {
+                            "type": "integer"
+                        },
+                        "complemento": {
+                            "type": "null"
+                        },
+                        "cep": {
+                            "type": "string"
+                        },
+                        "cidade": {
+                            "type": "string"
+                        },
+                        "estado": {
+                            "type": "string"
+                        },
+                        "pais": {
+                            "type": "string"
+                        },
+                        "idEndereco": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

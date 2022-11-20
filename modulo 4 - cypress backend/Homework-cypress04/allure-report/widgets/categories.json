@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"6e942f319bb4255ec12e3497f4fafc3e","name":"Falha no Produto","statistic":{"failed":8,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":8}},{"uid":"b378c321789e5e7a9a5856c08401e1a2","name":"Teste Passado","statistic":{"failed":0,"broken":0,"skipped":0,"passed":53,"unknown":0,"total":53}}]}

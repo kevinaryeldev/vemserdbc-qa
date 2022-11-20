@@ -1,0 +1,20 @@
+{
+  "name": "aula-cypress02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:run":"cypress run --config video=false --env allure=true",
+    "allure:generate":"allure generate allure-results --clean",
+    "allure:open":"allure open allure-report",
+    "test": "npx npm-run-all cy:run allure:generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.34.0",
+    "ajv": "^8.11.2",
+    "cypress": "^9.5.4"
+  }
+}

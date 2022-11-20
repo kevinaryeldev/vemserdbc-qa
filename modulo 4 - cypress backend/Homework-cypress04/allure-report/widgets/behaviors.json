@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"ab0517076e8f57f0dcbbdde01bde2b5f","name":"Teste de Contrato","statistic":{"failed":2,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":3}},{"uid":"6a4a1cc31475f407897cb58a3ccbe797","name":"Teste de Aceitação","statistic":{"failed":1,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":3}}]}
