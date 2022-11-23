@@ -1,0 +1,6 @@
+{
+    "ignoreTestFiles": "**/pages/*.js",
+    "defaultCommandTimeout":500,
+    "testFiles":"**/*.feature"
+}
+
